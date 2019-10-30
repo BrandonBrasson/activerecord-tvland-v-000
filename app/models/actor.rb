@@ -1,16 +1,14 @@
 class Actor < ActiveRecord::Base
+  has_many :characters
+   has_many :shows, through: :characters
 
-  def change
-   create_table :actor do |t|
-     t.string :name
-     t.timestamps
+   def full_name
+     "#{self.first_name} #{self.last_name}"
    end
 
-   create_table :name do |t|
-     t.belongs_to :artor
-     t.datetime :published_at
-     t.timestamps
+   def list_roles
+     characters.collect do |character|
+       "#{character.name} - #{character.show.name}"
+     end
    end
  end
-end
-end
