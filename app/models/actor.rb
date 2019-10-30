@@ -1,12 +1,13 @@
 class Actor < ActiveRecord::Base
+
   def change
-   create_table :authors do |t|
+   create_table :actor do |t|
      t.string :name
      t.timestamps
    end
 
-   create_table :books do |t|
-     t.belongs_to :author
+   create_table :name do |t|
+     t.belongs_to :artor
      t.datetime :published_at
      t.timestamps
    end
