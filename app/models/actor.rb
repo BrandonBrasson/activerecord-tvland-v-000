@@ -1,3 +1,3 @@
 class Actor < ActiveRecord::Base
-   has_many :actor, dependent: :destroy
+   has_many :actor
 end
