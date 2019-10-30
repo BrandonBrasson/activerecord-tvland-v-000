@@ -1,13 +1,13 @@
 require_relative 'spec_helper'
 
-puts describe "Actor" do
+ describe "Actor" do
   let(:actor) {Actor.new}
   #TODO: implement the tests as described in the it blocks,
   #      and implement the class and migrations required to pass them
 
   # HINTS: look at show_spec.rb and network_spec.rb and character_spec.rb for guidance
 
-  puts it "has a first and last name" do
+ it "has a first and last name" do
     # TODO set up the basic data model for actor
     actor = Actor.create(:first_name => "Emilia", :last_name => "Clarke")
 
@@ -15,7 +15,7 @@ puts describe "Actor" do
     expect(actor.last_name).to eq("Clarke")
   end
 
-  puts it "has associated characters in an array" do
+ it "has associated characters in an array" do
     # Hint: think about what migration you'll need to write so that an actor can have many characters.
     # Where will the association foreign key go?
     emilia = Actor.new(:first_name => "Emilia", :last_name => "Clarke")
@@ -28,7 +28,7 @@ puts describe "Actor" do
     expect(khaleesi.actor).to eq(emilia)
   end
 
-  puts it "can build its associated characters" do
+ it "can build its associated characters" do
     emilia = Actor.new(:first_name => "Emilia", :last_name => "Clarke")
     khaleesi = Character.new(:name => "Khaleesi")
     khaleesi.actor = emilia
